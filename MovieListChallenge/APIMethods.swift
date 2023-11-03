@@ -12,7 +12,7 @@ enum APIMethods: URLRequestConvertible {
   case popular(pageIndex: Int)
   case topRated(pageIndex: Int)
   case onTheAir(pageIndex: Int)
-  case detail(movieID: Int)
+  case detail(showId: Int)
   
   var path: String {
     switch self {
