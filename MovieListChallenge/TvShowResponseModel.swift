@@ -26,7 +26,7 @@ struct TvResult: Codable {
     let genreIDS: [Int]?
     let id: Int?
     let originCountry: [String]?
-    let originalLanguage, originalName, overview: String?
+    let overview: String?
     let popularity: Double?
     let posterPath, firstAirDate, name: String?
     let voteAverage: Double?
@@ -44,8 +44,6 @@ struct TvResult: Codable {
         case genreIDS = "genre_ids"
         case id
         case originCountry = "origin_country"
-        case originalLanguage = "original_language"
-        case originalName = "original_name"
         case overview, popularity
         case posterPath = "poster_path"
         case firstAirDate = "first_air_date"

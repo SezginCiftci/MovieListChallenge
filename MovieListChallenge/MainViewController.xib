@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +32,7 @@
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="UPS-sx-kwI"/>
-            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+            <color key="backgroundColor" name="navbarBg"/>
             <constraints>
                 <constraint firstItem="UPS-sx-kwI" firstAttribute="trailing" secondItem="LcI-Om-3GC" secondAttribute="trailing" id="6Ay-TI-tup"/>
                 <constraint firstItem="LcI-Om-3GC" firstAttribute="leading" secondItem="UPS-sx-kwI" secondAttribute="leading" id="Bva-4N-Z9S"/>
@@ -43,9 +44,9 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="navbarBg">
+            <color red="0.066666666666666666" green="0.11372549019607843" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

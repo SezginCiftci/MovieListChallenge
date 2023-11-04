@@ -60,7 +60,10 @@ final class MainViewController: UIViewController, MainViewInterface {
 //MARK: VerticalCell Delegate Methods
 extension MainViewController: VerticalCollectionCellDelegate {
     func didSelectShow(showId: Int) {
-        //TODO: Navigate to Detail With ShowId
+        let detailVC = DetailViewController()
+        let detailVM = DetailViewModel(showId: showId)
+        detailVC.viewModel = detailVM
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

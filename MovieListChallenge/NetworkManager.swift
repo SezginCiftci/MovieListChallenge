@@ -12,7 +12,7 @@ protocol NetworkManagerProtocol {
     func getPopularTvShows(pageIndex: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void)
     func getOnTheAirTvShows(pageIndex: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void)
     func getTopRatedTvShows(pageIndex: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void)
-    func getDetailTvShows(showId: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void)
+    func getDetailTvShows(showId: Int, completion: @escaping (Result<TvShowDetailResponseModel, AFError>) -> Void)
 }
 
 final class NetworkManager: NetworkManagerProtocol {
@@ -28,7 +28,7 @@ final class NetworkManager: NetworkManagerProtocol {
         request(method: .topRated(pageIndex: pageIndex), completion: completion)
     }
     
-    func getDetailTvShows(showId: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void) {
+    func getDetailTvShows(showId: Int, completion: @escaping (Result<TvShowDetailResponseModel, AFError>) -> Void) {
         request(method: .detail(showId: showId), completion: completion)
     }
 }

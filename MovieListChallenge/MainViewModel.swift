@@ -21,7 +21,7 @@ protocol MainViewModelInterface {
 
 final class MainViewModel: MainViewModelInterface {
     
-    var view: MainViewInterface?
+    weak var view: MainViewInterface?
     
     private var networkManager: NetworkManagerProtocol = NetworkManager()
     private var listInfo: [ListInfo] = []
