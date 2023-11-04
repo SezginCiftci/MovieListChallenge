@@ -31,6 +31,9 @@ struct TvResult: Codable {
     let posterPath, firstAirDate, name: String?
     let voteAverage: Double?
     let voteCount: Int?
+    var rating: String? {
+        return "Show Rating: " + String(format: "%.1f", voteAverage ?? 0.0)
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult

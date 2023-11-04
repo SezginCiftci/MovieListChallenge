@@ -44,6 +44,13 @@ final class MainViewController: UIViewController, MainViewInterface {
     }
 }
 
+//MARK: VerticalCell Delegate Methods
+extension MainViewController: VerticalCollectionCellDelegate {
+    func didSelectShow(showId: Int) {
+        //TODO: Navigate to Detail With ShowId
+    }
+}
+
 //MARK: CollectionView Methods
 extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -56,7 +63,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeCell(cellType: VerticalCollectionCell.self, indexPath: indexPath)
-        cell.tvShows = viewModel.cellForRow(at: indexPath)
+        let cellViewModel = VerticalCellViewModel(view: cell,
+                                                  tvShows: viewModel.cellForRow(at: indexPath),
+                                                  delegate: self)
+        cell.viewModel = cellViewModel
         return cell
     }
     

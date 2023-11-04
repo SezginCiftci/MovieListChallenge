@@ -7,21 +7,29 @@
 
 import UIKit
 
-final class VerticalCollectionCell: UICollectionViewCell {
+protocol VerticalCollectionCellInterface: AnyObject {
+    func prepareCollectionView()
+    func reloadCollectionView()
+}
+
+final class VerticalCollectionCell: UICollectionViewCell, VerticalCollectionCellInterface {
     
     @IBOutlet weak var verticalCellCollectionView: UICollectionView!
     
-    var tvShows: [TvResult] = [] {
-        didSet {
-            verticalCellCollectionView.reloadData()
-        }
-    }
+    var viewModel: VerticalCellViewModelInterface!
     
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    func prepareCollectionView() {
         verticalCellCollectionView.delegate = self
         verticalCellCollectionView.dataSource = self
         verticalCellCollectionView.register(cellType: HorizontalCollectionCell.self)
+    }
+    
+    func reloadCollectionView() {
+        verticalCellCollectionView.reloadData()
     }
 }
 
@@ -36,17 +44,17 @@ extension VerticalCollectionCell: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tvShows.count
+        return viewModel.numberOfRow(in: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeCell(cellType: HorizontalCollectionCell.self, indexPath: indexPath)
-        cell.titleLabel.text = tvShows[indexPath.row].name
-//        cell.subTitleLabel.text = "Subtitle Deneme"
+        cell.titleLabel.text = viewModel.cellForRow(at: indexPath)?.name
+        cell.subTitleLabel.text = viewModel.cellForRow(at: indexPath)?.rating
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO:
+        viewModel.didSelectItem(at: indexPath)
     }
 }
