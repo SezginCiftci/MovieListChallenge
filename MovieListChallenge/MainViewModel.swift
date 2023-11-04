@@ -28,9 +28,10 @@ final class MainViewModel: MainViewModelInterface {
     
     func viewDidLoad() {
         view?.prepareCollectionView()
-        view?.prepareNavigationBar(navbarTitle: "TV Shows",
-                                   bgColor: "navbarBg",
-                                   textColor: "navbarTitleColor")
+        view?.configureNavigationBar(barTitle: "TV Shows",
+                                     prefersLargeTitle: true,
+                                     barBgColorStr: "navbarBg",
+                                     barTitleColorStr: "navbarTitleColor")
         fetchTvShows(listType: .popular)
         fetchTvShows(listType: .topRated)
         fetchTvShows(listType: .onTheAir)

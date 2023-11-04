@@ -9,8 +9,11 @@ import UIKit
 import Kingfisher
 
 protocol DetailViewInterface: AnyObject {
-    func prepareNavigationBar()
-    func updateUI(showTitle: String, description: String, runTime: String, firstAir: String, starArray: [String], topImageURL: String, posterImageURL: String)
+    func configureNavigationBar(barTitle: String,
+                                prefersLargeTitle: Bool,
+                                barBgColorStr: String,
+                                barTitleColorStr: String)
+    func updateUI()
 }
 
 final class DetailViewController: UIViewController, DetailViewInterface {
@@ -30,38 +33,22 @@ final class DetailViewController: UIViewController, DetailViewInterface {
         viewModel.viewDidLoad()
     }
     
-    //TODO: Reusable bir yolunu bulmak lazım. Belli custom navigation olabilir.
-    func prepareNavigationBar() {
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        title = "Detail"
-//        let appearance = UINavigationBarAppearance()
-//        appearance.configureWithTransparentBackground()
-//        appearance.backgroundColor = UIColor.blue
-//        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-//        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-//        navigationItem.standardAppearance = appearance
-//        navigationItem.scrollEdgeAppearance = appearance
-    }
-    
-    func updateUI(showTitle: String,
-                  description: String,
-                  runTime: String,
-                  firstAir: String,
-                  starArray: [String],
-                  topImageURL: String,
-                  posterImageURL: String) {
-        title = showTitle
-        descriptionLabel.text = description
-        timeLabel.text = "\(runTime) min."
-        relaseDateLabel.text = firstAir //TODO: DateFormat işi var
-        topImageView.kf.setImage(with: URL(string: topImageURL))
-        posterImageView.kf.setImage(with: URL(string: posterImageURL))
-        let _ = starArray.enumerated().map { index, starStr in
+    func updateUI() {
+        title = viewModel.showTitle
+        descriptionLabel.text = viewModel.overview
+        timeLabel.text = viewModel.runTime
+        relaseDateLabel.text = viewModel.firstAir
+        topImageView.kf.setImage(with: URL(string: viewModel.topImageURL))
+        posterImageView.kf.setImage(with: URL(string: viewModel.posterImageURL))
+        let _ = viewModel.getStarImageNames.enumerated().map { index, starStr in
             starImages[index].image = UIImage(systemName: starStr)
         }
     }
     
     @IBAction func visitHomePageButtonTapped(_ sender: UIButton) {
+        if let homeURL = viewModel.homepage {
+            UIApplication.shared.open(homeURL)
+        }
     }
     
 }

@@ -9,7 +9,10 @@ import UIKit
 
 protocol MainViewInterface: AnyObject {
     func prepareCollectionView()
-    func prepareNavigationBar(navbarTitle: String, bgColor: String, textColor: String)
+    func configureNavigationBar(barTitle: String,
+                                prefersLargeTitle: Bool,
+                                barBgColorStr: String,
+                                barTitleColorStr: String)
     func reloadCollectionView()
 }
 
@@ -42,18 +45,6 @@ final class MainViewController: UIViewController, MainViewInterface {
     
     func reloadCollectionView() {
         mainCollectionView.reloadData()
-    }
-    
-    func prepareNavigationBar(navbarTitle: String, bgColor: String, textColor: String) {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        title = navbarTitle
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor(named: bgColor)
-        appearance.titleTextAttributes = [.foregroundColor: UIColor(named: textColor)!]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: textColor)!]
-        navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
     }
 }
 

@@ -9,6 +9,14 @@ import Foundation
 
 protocol DetailViewModelInterface {
     var view: DetailViewInterface? { get set }
+    var homepage: URL? { get }
+    var showTitle: String { get }
+    var overview: String { get }
+    var runTime: String { get }
+    var firstAir: String { get }
+    var topImageURL: String { get }
+    var posterImageURL: String { get }
+    var getStarImageNames: [String] { get }
     
     func viewDidLoad()
 }
@@ -20,70 +28,78 @@ final class DetailViewModel: DetailViewModelInterface {
     var responseDetail: TvShowDetailResponseModel?
     var showId: Int
     
-    var homepage: URL? {
-        return responseDetail?.homepageURL
-    }
-    
     init(showId: Int) {
         self.showId = showId
     }
     
     func viewDidLoad() {
-        view?.prepareNavigationBar()
+        view?.configureNavigationBar(barTitle: "TV Shows",
+                                     prefersLargeTitle: true,
+                                     barBgColorStr: "navbarBg",
+                                     barTitleColorStr: "navbarTitleColor")
         fetchDetail()
     }
     
-    func updateUI() {
-        view?.updateUI(showTitle: responseDetail?.name ?? "",
-                       description: responseDetail?.overview ?? "",
-                       runTime: String(responseDetail?.episodeRunTime?.first ?? 0),
-                       firstAir: responseDetail?.firstAirDate ?? "",
-                       starArray: configureStars(),
-                       topImageURL: responseDetail?.backdropURL ?? "",
-                       posterImageURL: responseDetail?.posterURL ?? "")
+    var homepage: URL? {
+        return responseDetail?.homepageURL
+    }
+    
+    var showTitle: String {
+        return responseDetail?.name ?? ""
+    }
+    
+    var overview: String {
+        return responseDetail?.overview ?? ""
+    }
+    
+    var runTime: String {
+        return String(responseDetail?.episodeRunTime?.first ?? 0) + "min."
+    }
+    
+    var firstAir: String {
+        return responseDetail?.firstAirDate.configureDate() ?? ""
+    }
+    
+    var topImageURL: String {
+        return responseDetail?.backdropURL ?? ""
+    }
+    
+    var posterImageURL: String {
+        return responseDetail?.posterURL ?? ""
+    }
+    
+    var getStarImageNames: [String] {
+        return configureStars().count == 5 ? configureStars() : []
     }
     
     private func configureStars() -> [String] {
-        var starArray: [StarTypes] = []
-        let fiveScaleRate = (responseDetail?.voteAverage ?? 0.0)/2
-        for _ in 0...Int(fiveScaleRate.rounded()) {
-            starArray.append(.starFilled)
+        let voteRate: Double = responseDetail?.voteAverage ?? 0.0
+        let scaleToFive = voteRate/2
+        var starArray = [String]()
+        let remainder: Double = scaleToFive - Double(Int(scaleToFive))
+        for _ in 0..<Int(scaleToFive) {
+            starArray.append("star.fill")
         }
-        starArray.count < 5 ? starArray.append(.starHalf) : nil
+        if remainder != 0, remainder >= 0.5 {
+            starArray.append("star.leadinghalf.filled")
+        }
         if starArray.count < 5 {
-            for _ in 0...(5-starArray.count) {
-                starArray.append(.star)
+            for _ in 0..<(5-Int(scaleToFive.rounded())) {
+                starArray.append("star")
             }
         }
-        return starArray.map { $0.starImageName }
+        return starArray
     }
     
-    //TODO: Burayı doğrudan raw ile alıp işlemi buranın içine taşımayı dene.
     private func fetchDetail() {
-        networkManager.getDetailTvShows(showId: showId) { result in
+        networkManager.getDetailTvShows(showId: showId) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let success):
                 self.responseDetail = success
-                self.updateUI()
+                self.view?.updateUI()
             case .failure(let failure):
                 print(failure.localizedDescription)
-            }
-        }
-    }
-    
-    private enum StarTypes {
-        case starFilled
-        case star
-        case starHalf
-        
-        var starImageName: String {
-            switch self {
-            case .starFilled:
-                return "star.fill"
-            case .star:
-                return "star"
-            case .starHalf:
-                return "star.leadinghalf.filled"
             }
         }
     }
