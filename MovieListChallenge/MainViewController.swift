@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MainViewInterface: AnyObject {
+protocol MainViewInterface: AnyObject, AlertPresentable {
     func prepareCollectionView()
     func configureNavigationBar(barTitle: String,
                                 prefersLargeTitle: Bool,

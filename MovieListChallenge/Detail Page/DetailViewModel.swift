@@ -40,38 +40,6 @@ final class DetailViewModel: DetailViewModelInterface {
         fetchDetail()
     }
     
-    var homepage: URL? {
-        return responseDetail?.homepageURL
-    }
-    
-    var showTitle: String {
-        return responseDetail?.name ?? ""
-    }
-    
-    var overview: String {
-        return responseDetail?.overview ?? ""
-    }
-    
-    var runTime: String {
-        return String(responseDetail?.episodeRunTime?.first ?? 0) + "min."
-    }
-    
-    var firstAir: String {
-        return responseDetail?.firstAirDate.configureDate() ?? ""
-    }
-    
-    var topImageURL: String {
-        return responseDetail?.backdropURL ?? ""
-    }
-    
-    var posterImageURL: String {
-        return responseDetail?.posterURL ?? ""
-    }
-    
-    var getStarImageNames: [String] {
-        return configureStars().count == 5 ? configureStars() : []
-    }
-    
     private func configureStars() -> [String] {
         let voteRate: Double = responseDetail?.voteAverage ?? 0.0
         let scaleToFive = voteRate/2
@@ -88,7 +56,7 @@ final class DetailViewModel: DetailViewModelInterface {
                 starArray.append("star")
             }
         }
-        return starArray
+        return starArray.count == 5 ? starArray : []
     }
     
     private func fetchDetail() {
@@ -99,8 +67,36 @@ final class DetailViewModel: DetailViewModelInterface {
                 self.responseDetail = success
                 self.view?.updateUI()
             case .failure(let failure):
-                print(failure.localizedDescription)
+                view?.presentAlert(message: failure.localizedDescription, actions: [])
             }
         }
+    }
+}
+
+//MARK: Detail View Datas
+extension DetailViewModel {
+    var homepage: URL? {
+        return responseDetail?.homepageURL
+    }
+    var showTitle: String {
+        return responseDetail?.name ?? ""
+    }
+    var overview: String {
+        return responseDetail?.overview ?? ""
+    }
+    var runTime: String {
+        return String(responseDetail?.episodeRunTime?.first ?? 0) + "min."
+    }
+    var firstAir: String {
+        return responseDetail?.firstAirDate.configureDate() ?? ""
+    }
+    var topImageURL: String {
+        return responseDetail?.backdropURL ?? ""
+    }
+    var posterImageURL: String {
+        return responseDetail?.posterURL ?? ""
+    }
+    var getStarImageNames: [String] {
+        return configureStars()
     }
 }

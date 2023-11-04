@@ -75,7 +75,7 @@ final class MainViewModel: MainViewModelInterface {
                 self.listInfo.append(ListInfo(listType: listType, tvShowResponse: success))
                 self.view?.reloadCollectionView()
             case .failure(let failure):
-                print(failure.localizedDescription)
+                view?.presentAlert(message: failure.localizedDescription, actions: [])
             }
         }
     }

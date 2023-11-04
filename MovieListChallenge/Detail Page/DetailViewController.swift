@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-protocol DetailViewInterface: AnyObject {
+protocol DetailViewInterface: AnyObject, AlertPresentable {
     func configureNavigationBar(barTitle: String,
                                 prefersLargeTitle: Bool,
                                 barBgColorStr: String,
