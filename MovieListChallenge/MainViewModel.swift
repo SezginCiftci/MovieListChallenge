@@ -32,9 +32,7 @@ final class MainViewModel: MainViewModelInterface {
                                      prefersLargeTitle: true,
                                      barBgColorStr: "navbarBg",
                                      barTitleColorStr: "navbarTitleColor")
-        fetchTvShows(listType: .popular)
-        fetchTvShows(listType: .topRated)
-        fetchTvShows(listType: .onTheAir)
+        fetchTVShows()
     }
     
     func viewWillAppear() {
@@ -56,14 +54,22 @@ final class MainViewModel: MainViewModelInterface {
         return listInfo[index.section].listType.listHeaders
     }
     
-    func fetchTvShows(listType: ListType, pageIndex: Int = 1) {
-        switch listType {
-        case .popular:
-            networkManager.getPopularTvShows(pageIndex: pageIndex, completion: apiCompletion(listType: listType))
-        case .topRated:
-            networkManager.getTopRatedTvShows(pageIndex: pageIndex, completion: apiCompletion(listType: listType))
-        case .onTheAir:
-            networkManager.getOnTheAirTvShows(pageIndex: pageIndex, completion: apiCompletion(listType: listType))
+    let group = DispatchGroup()
+    
+    private func fetchTVShows(pageIndex: Int = 1) {
+        view?.configureLoading(isLoading: true)
+        group.enter()
+        networkManager.getPopularTvShows(pageIndex: pageIndex,
+                                         completion: apiCompletion(listType: .popular))
+        group.enter()
+        networkManager.getTopRatedTvShows(pageIndex: pageIndex,
+                                          completion: apiCompletion(listType: .topRated))
+        group.enter()
+        networkManager.getOnTheAirTvShows(pageIndex: pageIndex,
+                                          completion: apiCompletion(listType: .onTheAir))
+        group.notify(queue: DispatchQueue.main) { [weak self] in
+            self?.view?.configureLoading(isLoading: false)
+            self?.view?.reloadCollectionView()
         }
     }
     
@@ -77,6 +83,7 @@ final class MainViewModel: MainViewModelInterface {
             case .failure(let failure):
                 view?.presentAlert(message: failure.localizedDescription, actions: [])
             }
+            group.leave()
         }
     }
 }

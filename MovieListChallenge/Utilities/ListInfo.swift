@@ -10,14 +10,10 @@ import Foundation
 struct ListInfo {
     var listType: ListType
     var tvShowResponse: TvShowResponseModel
-//    var currentPage: Int
-//    var totalPages: Int
     
     init(listType: ListType, tvShowResponse: TvShowResponseModel) {
         self.listType = listType
         self.tvShowResponse = tvShowResponse
-//        self.currentPage = currentPage
-//        self.totalPages = totalPages
     }
 }
 
