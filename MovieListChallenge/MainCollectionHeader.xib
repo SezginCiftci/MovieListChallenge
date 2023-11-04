@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainCollectionHeader" customModule="MovieListChallenge" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionHeader" id="rVO-fA-cM6" customClass="MainCollectionHeader" customModule="MovieListChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVU-mR-9Kc">
+                    <rect key="frame" x="20" y="14.666666666666664" width="353" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="00y-0r-M9F"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Hfh-c1-kKZ"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Hfh-c1-kKZ" firstAttribute="trailing" secondItem="WVU-mR-9Kc" secondAttribute="trailing" constant="20" id="EJK-Ag-bia"/>
+                <constraint firstItem="WVU-mR-9Kc" firstAttribute="centerY" secondItem="rVO-fA-cM6" secondAttribute="centerY" id="UJF-CP-XYM"/>
+                <constraint firstItem="WVU-mR-9Kc" firstAttribute="leading" secondItem="Hfh-c1-kKZ" secondAttribute="leading" constant="20" id="pAP-Si-ObK"/>
+            </constraints>
+            <connections>
+                <outlet property="headerTitle" destination="WVU-mR-9Kc" id="mJl-0z-7O9"/>
+            </connections>
+            <point key="canvasLocation" x="172" y="-23"/>
+        </collectionReusableView>
+    </objects>
+</document>
