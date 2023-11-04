@@ -11,6 +11,12 @@ final class VerticalCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var verticalCellCollectionView: UICollectionView!
     
+    var tvShows: [TvResult] = [] {
+        didSet {
+            verticalCellCollectionView.reloadData()
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         verticalCellCollectionView.delegate = self
@@ -30,13 +36,13 @@ extension VerticalCollectionCell: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return tvShows.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeCell(cellType: HorizontalCollectionCell.self, indexPath: indexPath)
-        cell.titleLabel.text = "Title Deneme"
-        cell.subTitleLabel.text = "Subtitle Deneme"
+        cell.titleLabel.text = tvShows[indexPath.row].name
+//        cell.subTitleLabel.text = "Subtitle Deneme"
         return cell
     }
     

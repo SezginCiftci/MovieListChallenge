@@ -7,39 +7,62 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+protocol MainViewInterface: AnyObject {
+    func prepareCollectionView()
+    func reloadCollectionView()
+}
+
+final class MainViewController: UIViewController, MainViewInterface {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
+    
+    private var viewModel: MainViewModelInterface!
     
     //MARK: ViewController Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = MainViewModel()
+        viewModel.view = self
+        viewModel.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
+    }
+    
+    //MARK: MainViewInterface Methods
+    func prepareCollectionView() {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.register(cellType: VerticalCollectionCell.self)
         mainCollectionView.registerView(cellType: MainCollectionHeader.self)
+    }
+    
+    func reloadCollectionView() {
+        mainCollectionView.reloadData()
     }
 }
 
 //MARK: CollectionView Methods
 extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return viewModel.numberOfSections()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return viewModel.numberOfRows(in: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeCell(cellType: VerticalCollectionCell.self, indexPath: indexPath)
-        
+        cell.tvShows = viewModel.cellForRow(at: indexPath)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeView(cellType: MainCollectionHeader.self, indexPath: indexPath)
-        
+        header.headerTitle.text = viewModel.titleForHeader(at: indexPath)
         return header
     }
     
