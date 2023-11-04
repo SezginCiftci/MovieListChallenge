@@ -34,6 +34,9 @@ struct TvResult: Codable {
     var rating: String? {
         return "Show Rating: " + String(format: "%.1f", voteAverage ?? 0.0)
     }
+    var posterURL: URL? {
+        return URL(string: "https://image.tmdb.org/t/p/w500" + (posterPath ?? ""))
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult

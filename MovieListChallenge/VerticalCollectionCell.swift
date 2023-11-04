@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol VerticalCollectionCellInterface: AnyObject {
     func prepareCollectionView()
@@ -51,6 +52,7 @@ extension VerticalCollectionCell: UICollectionViewDelegateFlowLayout, UICollecti
         let cell = collectionView.dequeCell(cellType: HorizontalCollectionCell.self, indexPath: indexPath)
         cell.titleLabel.text = viewModel.cellForRow(at: indexPath)?.name
         cell.subTitleLabel.text = viewModel.cellForRow(at: indexPath)?.rating
+        cell.cellImageView.kf.setImage(with: viewModel.cellForRow(at: indexPath)?.posterURL)
         return cell
     }
     
