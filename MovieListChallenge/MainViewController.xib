@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="MovieListChallenge" customModuleProvider="target">
             <connections>
+                <outlet property="loadingAnimation" destination="mhx-2m-bMw" id="6YE-c5-PHQ"/>
                 <outlet property="mainCollectionView" destination="LcI-Om-3GC" id="sKh-xl-GuI"/>
                 <outlet property="view" destination="wBr-eZ-D2K" id="nKJ-vu-F4g"/>
             </connections>
@@ -30,13 +31,24 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="mhx-2m-bMw">
+                    <rect key="frame" x="176.66666666666666" y="406" width="40" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="IqU-BI-JSK"/>
+                        <constraint firstAttribute="height" constant="40" id="OLq-rY-kAg"/>
+                    </constraints>
+                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="UPS-sx-kwI"/>
             <color key="backgroundColor" name="navbarBg"/>
             <constraints>
                 <constraint firstItem="UPS-sx-kwI" firstAttribute="trailing" secondItem="LcI-Om-3GC" secondAttribute="trailing" id="6Ay-TI-tup"/>
                 <constraint firstItem="LcI-Om-3GC" firstAttribute="leading" secondItem="UPS-sx-kwI" secondAttribute="leading" id="Bva-4N-Z9S"/>
+                <constraint firstItem="mhx-2m-bMw" firstAttribute="centerX" secondItem="wBr-eZ-D2K" secondAttribute="centerX" id="UNm-UV-E2O"/>
                 <constraint firstItem="LcI-Om-3GC" firstAttribute="top" secondItem="UPS-sx-kwI" secondAttribute="top" id="gUN-Cz-vRC"/>
+                <constraint firstItem="mhx-2m-bMw" firstAttribute="centerY" secondItem="wBr-eZ-D2K" secondAttribute="centerY" id="lIE-KB-q91"/>
                 <constraint firstItem="UPS-sx-kwI" firstAttribute="bottom" secondItem="LcI-Om-3GC" secondAttribute="bottom" id="pbY-4h-xVo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

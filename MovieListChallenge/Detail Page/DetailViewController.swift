@@ -14,6 +14,7 @@ protocol DetailViewInterface: AnyObject, AlertPresentable {
                                 barBgColorStr: String,
                                 barTitleColorStr: String)
     func updateUI()
+    func configureLoading(isLoading: Bool)
 }
 
 final class DetailViewController: UIViewController, DetailViewInterface {
@@ -24,6 +25,7 @@ final class DetailViewController: UIViewController, DetailViewInterface {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet var starImages: [UIImageView]!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var loadingAnimation: UIActivityIndicatorView!
     
     var viewModel: DetailViewModelInterface!
     
@@ -43,6 +45,10 @@ final class DetailViewController: UIViewController, DetailViewInterface {
         let _ = viewModel.getStarImageNames.enumerated().map { index, starStr in
             starImages[index].image = UIImage(systemName: starStr)
         }
+    }
+    
+    func configureLoading(isLoading: Bool) {
+        isLoading ? loadingAnimation.startAnimating() : loadingAnimation.stopAnimating()
     }
     
     @IBAction func visitHomePageButtonTapped(_ sender: UIButton) {

@@ -60,6 +60,7 @@ final class DetailViewModel: DetailViewModelInterface {
     }
     
     private func fetchDetail() {
+        view?.configureLoading(isLoading: true)
         networkManager.getDetailTvShows(showId: showId) { [weak self] result in
             guard let self else { return }
             switch result {
@@ -69,6 +70,7 @@ final class DetailViewModel: DetailViewModelInterface {
             case .failure(let failure):
                 view?.presentAlert(message: failure.localizedDescription, actions: [])
             }
+            self.view?.configureLoading(isLoading: false)
         }
     }
 }

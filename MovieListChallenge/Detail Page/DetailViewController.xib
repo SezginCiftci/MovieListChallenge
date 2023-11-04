@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="MovieListChallenge" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionLabel" destination="Kfl-El-VNh" id="WDh-C4-siV"/>
+                <outlet property="loadingAnimation" destination="YOP-Mx-WCq" id="6Ag-hM-IWo"/>
                 <outlet property="posterImageView" destination="CL1-B0-LJa" id="pLb-XG-UxP"/>
                 <outlet property="relaseDateLabel" destination="51F-Rw-b3x" id="0Mu-ea-YHi"/>
                 <outlet property="timeLabel" destination="gzf-RI-ALa" id="EQL-ig-YED"/>
@@ -205,6 +206,14 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="YOP-Mx-WCq">
+                    <rect key="frame" x="176.66666666666666" y="406" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="UkT-Y8-gkI"/>
+                        <constraint firstAttribute="width" constant="40" id="r5s-vH-Wvp"/>
+                    </constraints>
+                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.5" green="0.53715656279994517" blue="0.77155288033045388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -212,6 +221,7 @@
                 <constraint firstItem="9Cg-gc-Kir" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1g2-e4-vXI"/>
                 <constraint firstItem="9Cg-gc-Kir" firstAttribute="top" secondItem="QrL-zP-pII" secondAttribute="bottom" id="2Hl-eK-bPh"/>
                 <constraint firstItem="Kfl-El-VNh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="2Vq-5d-bZ3"/>
+                <constraint firstItem="YOP-Mx-WCq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6kI-xs-48N"/>
                 <constraint firstItem="QrL-zP-pII" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7hd-8I-T3g"/>
                 <constraint firstItem="CL1-B0-LJa" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="A2z-Ag-a9B"/>
                 <constraint firstItem="9Cg-gc-Kir" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="E0H-Cm-sY4"/>
@@ -219,6 +229,7 @@
                 <constraint firstItem="Kfl-El-VNh" firstAttribute="top" secondItem="9Cg-gc-Kir" secondAttribute="bottom" constant="30" id="c7u-Ic-QuZ"/>
                 <constraint firstItem="CL1-B0-LJa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="cZl-hh-I9n"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Kfl-El-VNh" secondAttribute="trailing" constant="20" id="eiK-Tr-Pre"/>
+                <constraint firstItem="YOP-Mx-WCq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="i77-9b-xLX"/>
                 <constraint firstItem="9Cg-gc-Kir" firstAttribute="top" secondItem="QrL-zP-pII" secondAttribute="bottom" id="kwo-KN-jRL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Kfl-El-VNh" secondAttribute="bottom" constant="30" id="qXI-xh-CeO"/>
                 <constraint firstItem="QrL-zP-pII" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zRd-My-mRT"/>

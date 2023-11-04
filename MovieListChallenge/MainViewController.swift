@@ -14,11 +14,13 @@ protocol MainViewInterface: AnyObject, AlertPresentable {
                                 barBgColorStr: String,
                                 barTitleColorStr: String)
     func reloadCollectionView()
+    func configureLoading(isLoading: Bool)
 }
 
 final class MainViewController: UIViewController, MainViewInterface {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var loadingAnimation: UIActivityIndicatorView!
     
     private var viewModel: MainViewModelInterface!
     
@@ -45,6 +47,10 @@ final class MainViewController: UIViewController, MainViewInterface {
     
     func reloadCollectionView() {
         mainCollectionView.reloadData()
+    }
+    
+    func configureLoading(isLoading: Bool) {
+        isLoading ? loadingAnimation.startAnimating() : loadingAnimation.stopAnimating()
     }
 }
 
