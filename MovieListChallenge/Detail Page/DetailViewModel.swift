@@ -40,7 +40,7 @@ final class DetailViewModel: DetailViewModelInterface {
         fetchDetail()
     }
     
-    private func configureStars() -> [String] {
+    private func calculateStars() -> [String] {
         let voteRate: Double = responseDetail?.voteAverage ?? 0.0
         let scaleToFive = voteRate/2
         var starArray = [String]()
@@ -99,6 +99,6 @@ extension DetailViewModel {
         return responseDetail?.posterURL ?? ""
     }
     var getStarImageNames: [String] {
-        return configureStars()
+        return calculateStars()
     }
 }
