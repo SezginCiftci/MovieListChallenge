@@ -14,7 +14,6 @@
 		C40F9D5C2AF5677800AD748C /* APIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D5B2AF5677800AD748C /* APIMethods.swift */; };
 		C40F9D5E2AF5678A00AD748C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D5D2AF5678A00AD748C /* NetworkManager.swift */; };
 		C40F9D612AF5683600AD748C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C40F9D602AF5683600AD748C /* Alamofire */; };
-		C40F9D632AF5691E00AD748C /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D622AF5691E00AD748C /* APIConstants.swift */; };
 		C40F9D662AF57BDD00AD748C /* TvShowResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D652AF57BDD00AD748C /* TvShowResponseModel.swift */; };
 		C40F9D6B2AF58B4200AD748C /* MainCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D6A2AF58B4200AD748C /* MainCollectionHeader.swift */; };
 		C40F9D6F2AF58CF400AD748C /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D6E2AF58CF400AD748C /* UICollectionView+.swift */; };
@@ -34,6 +33,7 @@
 		C40F9D932AF6B2A300AD748C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D922AF6B2A300AD748C /* UIViewController+.swift */; };
 		C40F9D952AF6BCC300AD748C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D942AF6BCC300AD748C /* String+.swift */; };
 		C40F9D972AF6F30100AD748C /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D962AF6F30100AD748C /* AlertPresentable.swift */; };
+		C40F9D992AF780EC00AD748C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C40F9D982AF780EC00AD748C /* Keys.plist */; };
 		C4A8FA292AF55F0B005F1C1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A8FA282AF55F0B005F1C1D /* AppDelegate.swift */; };
 		C4A8FA2B2AF55F0B005F1C1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A8FA2A2AF55F0B005F1C1D /* SceneDelegate.swift */; };
 		C4A8FA322AF55F0C005F1C1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A8FA312AF55F0C005F1C1D /* Assets.xcassets */; };
@@ -67,7 +67,6 @@
 		C40F9D572AF563AB00AD748C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C40F9D5B2AF5677800AD748C /* APIMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethods.swift; sourceTree = "<group>"; };
 		C40F9D5D2AF5678A00AD748C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		C40F9D622AF5691E00AD748C /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		C40F9D652AF57BDD00AD748C /* TvShowResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowResponseModel.swift; sourceTree = "<group>"; };
 		C40F9D6A2AF58B4200AD748C /* MainCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionHeader.swift; sourceTree = "<group>"; };
 		C40F9D6E2AF58CF400AD748C /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		C40F9D922AF6B2A300AD748C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		C40F9D942AF6BCC300AD748C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		C40F9D962AF6F30100AD748C /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
+		C40F9D982AF780EC00AD748C /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		C4A8FA252AF55F0B005F1C1D /* MovieListChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieListChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A8FA282AF55F0B005F1C1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4A8FA2A2AF55F0B005F1C1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +140,7 @@
 			children = (
 				C4A8FA332AF55F0C005F1C1D /* LaunchScreen.storyboard */,
 				C4A8FA362AF55F0C005F1C1D /* Info.plist */,
+				C40F9D982AF780EC00AD748C /* Keys.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -188,7 +189,6 @@
 			children = (
 				C40F9D5B2AF5677800AD748C /* APIMethods.swift */,
 				C40F9D5D2AF5678A00AD748C /* NetworkManager.swift */,
-				C40F9D622AF5691E00AD748C /* APIConstants.swift */,
 			);
 			name = "Network Layer";
 			sourceTree = "<group>";
@@ -416,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40F9D992AF780EC00AD748C /* Keys.plist in Resources */,
 				C40F9D7C2AF61FBB00AD748C /* MainCollectionHeader.xib in Resources */,
 				C40F9D7E2AF6205B00AD748C /* DetailViewController.xib in Resources */,
 				C40F9D832AF621FA00AD748C /* HorizontalCollectionCell.xib in Resources */,
@@ -460,7 +461,6 @@
 				C40F9D542AF5635200AD748C /* DetailViewController.swift in Sources */,
 				C40F9D782AF61F3300AD748C /* VerticalCollectionCell.swift in Sources */,
 				C40F9D5E2AF5678A00AD748C /* NetworkManager.swift in Sources */,
-				C40F9D632AF5691E00AD748C /* APIConstants.swift in Sources */,
 				C40F9D882AF653E000AD748C /* VerticalCellViewModel.swift in Sources */,
 				C4A8FA2B2AF55F0B005F1C1D /* SceneDelegate.swift in Sources */,
 				C40F9D8F2AF679CF00AD748C /* TvShowDetailResponseModel.swift in Sources */,

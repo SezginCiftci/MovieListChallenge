@@ -22,7 +22,7 @@ protocol VerticalCollectionCellDelegate {
 
 final class VerticalCellViewModel: VerticalCellViewModelInterface {
     
-    var view: VerticalCollectionCellInterface?
+    weak var view: VerticalCollectionCellInterface?
     var delegate: VerticalCollectionCellDelegate
     var tvShows: [TvResult]
     
