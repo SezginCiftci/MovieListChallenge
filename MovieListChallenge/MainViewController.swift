@@ -27,8 +27,7 @@ final class MainViewController: UIViewController, MainViewInterface {
     //MARK: ViewController Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = MainViewModel()
-        viewModel.view = self
+        viewModel = MainViewModel(view: self)
         viewModel.viewDidLoad()
     }
     

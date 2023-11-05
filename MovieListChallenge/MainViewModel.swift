@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 protocol MainViewModelInterface {
-    var view: MainViewInterface? { get set }
+//    var view: MainViewInterface? { get set }
     
     func viewDidLoad()
     func viewWillAppear()
@@ -21,10 +21,17 @@ protocol MainViewModelInterface {
 
 final class MainViewModel: MainViewModelInterface {
     
-    weak var view: MainViewInterface?
+    private weak var view: MainViewInterface?
+    private var networkManager: NetworkManagerProtocol
     
-    private var networkManager: NetworkManagerProtocol = NetworkManager()
     private var listInfo: [ListInfo] = []
+    private let group = DispatchGroup()
+    
+    init(view: MainViewInterface? = nil,
+         networkManager: NetworkManagerProtocol = NetworkManager()) {
+        self.view = view
+        self.networkManager = networkManager
+    }
     
     func viewDidLoad() {
         view?.prepareCollectionView()
@@ -53,9 +60,7 @@ final class MainViewModel: MainViewModelInterface {
     func titleForHeader(at index: IndexPath) -> String {
         return listInfo[index.section].listType.listHeaders
     }
-    
-    let group = DispatchGroup()
-    
+        
     private func fetchTVShows(pageIndex: Int = 1) {
         view?.configureLoading(isLoading: true)
         group.enter()
@@ -79,7 +84,7 @@ final class MainViewModel: MainViewModelInterface {
             switch result {
             case .success(let success):
                 self.listInfo.append(ListInfo(listType: listType, tvShowResponse: success))
-                self.view?.reloadCollectionView()
+//                self.view?.reloadCollectionView()
             case .failure(let failure):
                 view?.presentAlert(message: failure.localizedDescription, actions: [])
             }
