@@ -47,6 +47,7 @@ final class DetailViewModelTest: XCTestCase {
         wait(for: [expectation], timeout: 5)
     }
     
+    // Detail ViewModel UI Elements That Returns To View.
     func test_viewModelPresentDatas() {
         XCTAssertNil(sut.homepage)
         XCTAssertEqual(sut.showTitle, "")
@@ -72,6 +73,7 @@ final class DetailViewModelTest: XCTestCase {
         wait(for: [expectation], timeout: 5)
     }
     
+    // Star Calculation Test For General Usage.
     func starExpectations(rating: Double, stars: [StarType]) {
         XCTAssertEqual(sut.getStarImageNames.count, 5)
         var starArray: [StarType] = [.star, .star, .star, .star, .star]
@@ -89,6 +91,7 @@ final class DetailViewModelTest: XCTestCase {
         wait(for: [expectation], timeout: 5)
     }
     
+    // Star Calculation Test For Possible Cases.
     func test_calculateFiveStars() {
         starExpectations(rating: 10.0,
                          stars: [.starFilled, .starFilled, .starFilled, .starFilled, .starFilled])

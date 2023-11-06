@@ -50,6 +50,7 @@ final class MockNetworkManager: NetworkManagerInterface {
     }
 }
 
+// Static Data For Tests.
 extension MockNetworkManager {
     private var dummyList: TvShowResponseModel {
         return TvShowResponseModel(page: 1, results: [TvResult(adult: true, backdropPath: "", genreIDS: [0], id: 0, originCountry: ["Türkiye"], overview: "Deneme", popularity: 0.0, posterPath: "", firstAirDate: "", name: "", voteAverage: 0.0, voteCount: 0)], totalPages: 1, totalResults: 1)
