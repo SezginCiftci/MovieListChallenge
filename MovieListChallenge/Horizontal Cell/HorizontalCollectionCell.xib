@@ -26,20 +26,17 @@
                             <rect key="frame" x="0.0" y="0.0" width="138" height="54"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mE-LA-FGq">
-                                    <rect key="frame" x="8" y="8" width="122" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="0mE-LA-FGq">
+                                    <rect key="frame" x="8" y="4" width="122" height="24"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="17" id="Xqn-iA-JTw"/>
+                                        <constraint firstAttribute="height" constant="24" id="Xqn-iA-JTw"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" systemColor="systemIndigoColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SubTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSF-pV-cfN">
-                                    <rect key="frame" x="8" y="26.999999999999996" width="122" height="13.333333333333332"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="13.33" id="p0S-gx-E3i"/>
-                                    </constraints>
+                                    <rect key="frame" x="8" y="32.666666666666657" width="122" height="13.333333333333336"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -48,10 +45,11 @@
                             <constraints>
                                 <constraint firstItem="XSF-pV-cfN" firstAttribute="leading" secondItem="8AW-DQ-4HA" secondAttribute="leading" constant="8" id="0OP-C5-PFB"/>
                                 <constraint firstItem="0mE-LA-FGq" firstAttribute="leading" secondItem="8AW-DQ-4HA" secondAttribute="leading" constant="8" id="5Xl-tZ-kY9"/>
-                                <constraint firstItem="0mE-LA-FGq" firstAttribute="top" secondItem="8AW-DQ-4HA" secondAttribute="top" constant="8" id="hZI-A3-d0i"/>
+                                <constraint firstItem="0mE-LA-FGq" firstAttribute="top" secondItem="8AW-DQ-4HA" secondAttribute="top" constant="4" id="hZI-A3-d0i"/>
+                                <constraint firstAttribute="bottom" secondItem="XSF-pV-cfN" secondAttribute="bottom" constant="8" id="jXY-2s-wXs"/>
                                 <constraint firstAttribute="trailing" secondItem="0mE-LA-FGq" secondAttribute="trailing" constant="8" id="neh-ZR-Jvy"/>
                                 <constraint firstAttribute="trailing" secondItem="XSF-pV-cfN" secondAttribute="trailing" constant="8" id="srh-zd-uTn"/>
-                                <constraint firstItem="XSF-pV-cfN" firstAttribute="top" secondItem="0mE-LA-FGq" secondAttribute="bottom" constant="2" id="zeZ-u9-oRo"/>
+                                <constraint firstItem="XSF-pV-cfN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0mE-LA-FGq" secondAttribute="bottom" constant="2" id="zeZ-u9-oRo"/>
                             </constraints>
                         </view>
                         <constraints>
