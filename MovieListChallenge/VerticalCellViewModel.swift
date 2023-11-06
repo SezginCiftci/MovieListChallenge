@@ -23,21 +23,20 @@ protocol VerticalCollectionCellDelegate {
 final class VerticalCellViewModel: VerticalCellViewModelInterface {
     
     weak var view: VerticalCollectionCellInterface?
-    var delegate: VerticalCollectionCellDelegate
+    var delegate: VerticalCollectionCellDelegate?
     var tvShows: [TvResult]
     
     init(view: VerticalCollectionCellInterface,
          tvShows: [TvResult],
-         delegate: VerticalCollectionCellDelegate) {
+         delegate: VerticalCollectionCellDelegate?) {
         self.view = view
         self.tvShows = tvShows
         self.delegate = delegate
-        layoutSubViews()
-        !tvShows.isEmpty ? self.view?.reloadCollectionView() : nil
+        view.prepareCollectionView()
     }
     
     func layoutSubViews() {
-        view?.prepareCollectionView()
+        !tvShows.isEmpty ? self.view?.reloadCollectionView() : nil
     }
     
     func cellForRow(at index: IndexPath) -> TvResult? {
@@ -50,7 +49,7 @@ final class VerticalCellViewModel: VerticalCellViewModelInterface {
     
     func didSelectItem(at index: IndexPath) {
         if let showId = tvShows[index.row].id {
-            delegate.didSelectShow(showId: showId)
+            delegate?.didSelectShow(showId: showId)
         }
     }
 }

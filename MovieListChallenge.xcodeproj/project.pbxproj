@@ -45,6 +45,8 @@
 		C4C143142AF8E51900CA7460 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C143132AF8E51900CA7460 /* MockNetworkManager.swift */; };
 		C4C143192AF9263900CA7460 /* DetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C143182AF9263900CA7460 /* DetailViewModelTest.swift */; };
 		C4C1431B2AF926A700CA7460 /* MockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C1431A2AF926A700CA7460 /* MockDetailViewController.swift */; };
+		C4C1431D2AF948C300CA7460 /* VerticalCellViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C1431C2AF948C300CA7460 /* VerticalCellViewModelTest.swift */; };
+		C4C143202AF9493D00CA7460 /* MockVerticalCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C1431F2AF9493D00CA7460 /* MockVerticalCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		C4C143132AF8E51900CA7460 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		C4C143182AF9263900CA7460 /* DetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTest.swift; sourceTree = "<group>"; };
 		C4C1431A2AF926A700CA7460 /* MockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailViewController.swift; sourceTree = "<group>"; };
+		C4C1431C2AF948C300CA7460 /* VerticalCellViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCellViewModelTest.swift; sourceTree = "<group>"; };
+		C4C1431F2AF9493D00CA7460 /* MockVerticalCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerticalCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +321,7 @@
 		C4C143152AF9251F00CA7460 /* Main Page Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C4C1431E2AF948CE00CA7460 /* Vertical Cell Test */,
 				C4C1430F2AF8E1A100CA7460 /* MovieListViewModelTest.swift */,
 				C4C143112AF8E2A500CA7460 /* MockMainViewController.swift */,
 			);
@@ -338,6 +343,15 @@
 				C4C1431A2AF926A700CA7460 /* MockDetailViewController.swift */,
 			);
 			name = "Detail Page Tests";
+			sourceTree = "<group>";
+		};
+		C4C1431E2AF948CE00CA7460 /* Vertical Cell Test */ = {
+			isa = PBXGroup;
+			children = (
+				C4C1431C2AF948C300CA7460 /* VerticalCellViewModelTest.swift */,
+				C4C1431F2AF9493D00CA7460 /* MockVerticalCellView.swift */,
+			);
+			path = "Vertical Cell Test";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,8 +528,10 @@
 			files = (
 				C4C143102AF8E1A100CA7460 /* MovieListViewModelTest.swift in Sources */,
 				C4C143142AF8E51900CA7460 /* MockNetworkManager.swift in Sources */,
+				C4C143202AF9493D00CA7460 /* MockVerticalCellView.swift in Sources */,
 				C4C1431B2AF926A700CA7460 /* MockDetailViewController.swift in Sources */,
 				C4C143122AF8E2A500CA7460 /* MockMainViewController.swift in Sources */,
+				C4C1431D2AF948C300CA7460 /* VerticalCellViewModelTest.swift in Sources */,
 				C4C143192AF9263900CA7460 /* DetailViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

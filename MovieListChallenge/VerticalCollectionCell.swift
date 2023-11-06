@@ -21,6 +21,7 @@ final class VerticalCollectionCell: UICollectionViewCell, VerticalCollectionCell
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        viewModel.layoutSubViews()
     }
     
     func prepareCollectionView() {
