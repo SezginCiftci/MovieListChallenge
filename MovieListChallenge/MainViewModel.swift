@@ -22,7 +22,7 @@ final class MainViewModel: MainViewModelInterface {
     private weak var view: MainViewInterface?
     private var networkManager: NetworkManagerProtocol
     
-    private var listInfo: [ListInfo] = []
+    private var listInfo: [ListArguments] = []
     private let group = DispatchGroup()
     
     init(view: MainViewInterface? = nil,
@@ -81,7 +81,7 @@ final class MainViewModel: MainViewModelInterface {
             guard let self else { return }
             switch result {
             case .success(let success):
-                self.listInfo.append(ListInfo(listType: listType, tvShowResponse: success))
+                self.listInfo.append(ListArguments(listType: listType, tvShowResponse: success))
             case .failure(let failure):
                 view?.presentAlert(message: failure.localizedDescription, actions: [])
             }

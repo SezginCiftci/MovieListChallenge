@@ -25,7 +25,7 @@
 		C40F9D7E2AF6205B00AD748C /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C40F9D7D2AF6205B00AD748C /* DetailViewController.xib */; };
 		C40F9D812AF621D200AD748C /* HorizontalCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D802AF621D200AD748C /* HorizontalCollectionCell.swift */; };
 		C40F9D832AF621FA00AD748C /* HorizontalCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C40F9D822AF621FA00AD748C /* HorizontalCollectionCell.xib */; };
-		C40F9D862AF643DD00AD748C /* ListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D852AF643DD00AD748C /* ListInfo.swift */; };
+		C40F9D862AF643DD00AD748C /* ListArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D852AF643DD00AD748C /* ListArguments.swift */; };
 		C40F9D882AF653E000AD748C /* VerticalCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D872AF653E000AD748C /* VerticalCellViewModel.swift */; };
 		C40F9D8B2AF65ECF00AD748C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C40F9D8A2AF65ECF00AD748C /* Kingfisher */; };
 		C40F9D8D2AF6600000AD748C /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9D8C2AF6600000AD748C /* UIView+.swift */; };
@@ -78,7 +78,7 @@
 		C40F9D7D2AF6205B00AD748C /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		C40F9D802AF621D200AD748C /* HorizontalCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionCell.swift; sourceTree = "<group>"; };
 		C40F9D822AF621FA00AD748C /* HorizontalCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalCollectionCell.xib; sourceTree = "<group>"; };
-		C40F9D852AF643DD00AD748C /* ListInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInfo.swift; sourceTree = "<group>"; };
+		C40F9D852AF643DD00AD748C /* ListArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListArguments.swift; sourceTree = "<group>"; };
 		C40F9D872AF653E000AD748C /* VerticalCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCellViewModel.swift; sourceTree = "<group>"; };
 		C40F9D8C2AF6600000AD748C /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		C40F9D8E2AF679CF00AD748C /* TvShowDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDetailResponseModel.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 		C40F9D842AF643CD00AD748C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C40F9D852AF643DD00AD748C /* ListInfo.swift */,
+				C40F9D852AF643DD00AD748C /* ListArguments.swift */,
 				C40F9D962AF6F30100AD748C /* AlertPresentable.swift */,
 			);
 			path = Utilities;
@@ -449,7 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40F9D6F2AF58CF400AD748C /* UICollectionView+.swift in Sources */,
-				C40F9D862AF643DD00AD748C /* ListInfo.swift in Sources */,
+				C40F9D862AF643DD00AD748C /* ListArguments.swift in Sources */,
 				C40F9D972AF6F30100AD748C /* AlertPresentable.swift in Sources */,
 				C40F9D932AF6B2A300AD748C /* UIViewController+.swift in Sources */,
 				C40F9D4B2AF5613D00AD748C /* MainViewController.swift in Sources */,

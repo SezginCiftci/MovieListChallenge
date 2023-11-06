@@ -1,5 +1,5 @@
 //
-//  ListInfo.swift
+//  ListArguments.swift
 //  MovieListChallenge
 //
 //  Created by Sezgin Çiftci on 4.11.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ListInfo {
+struct ListArguments {
     var listType: ListType
     var tvShowResponse: TvShowResponseModel
     
