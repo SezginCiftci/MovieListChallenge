@@ -22,7 +22,7 @@ final class MainViewModel: MainViewModelInterface {
     private weak var view: MainViewInterface?
     private var networkManager: NetworkManagerInterface
     
-    private var listInfo: [ListArguments] = []
+    private var listArguments: [ListArguments] = []
     private let group = DispatchGroup()
     
     init(view: MainViewInterface,
@@ -44,11 +44,11 @@ final class MainViewModel: MainViewModelInterface {
     }
     
     func cellForRow(at index: IndexPath) -> [TvResult] {
-        return listInfo[index.section].tvShowResponse.results ?? []
+        return listArguments[index.section].tvShowResponse.results ?? []
     }
     
     func numberOfSections() -> Int {
-        return listInfo.count
+        return listArguments.count
     }
     
     func numberOfRows(in section: Int) -> Int {
@@ -56,7 +56,7 @@ final class MainViewModel: MainViewModelInterface {
     }
     
     func titleForHeader(at index: IndexPath) -> String {
-        return listInfo[index.section].listType.listHeaders
+        return listArguments[index.section].listType.listHeaders
     }
         
     private func fetchTVShows(pageIndex: Int = 1) {
@@ -81,7 +81,7 @@ final class MainViewModel: MainViewModelInterface {
             guard let self else { return }
             switch result {
             case .success(let success):
-                self.listInfo.append(ListArguments(listType: listType, tvShowResponse: success))
+                self.listArguments.append(ListArguments(listType: listType, tvShowResponse: success))
             case .failure(let failure):
                 self.view?.presentAlert(message: failure.localizedDescription, actions: [])
             }
