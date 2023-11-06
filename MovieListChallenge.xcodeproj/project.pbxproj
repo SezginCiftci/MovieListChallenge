@@ -43,6 +43,8 @@
 		C4C143102AF8E1A100CA7460 /* MovieListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C1430F2AF8E1A100CA7460 /* MovieListViewModelTest.swift */; };
 		C4C143122AF8E2A500CA7460 /* MockMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C143112AF8E2A500CA7460 /* MockMainViewController.swift */; };
 		C4C143142AF8E51900CA7460 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C143132AF8E51900CA7460 /* MockNetworkManager.swift */; };
+		C4C143192AF9263900CA7460 /* DetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C143182AF9263900CA7460 /* DetailViewModelTest.swift */; };
+		C4C1431B2AF926A700CA7460 /* MockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C1431A2AF926A700CA7460 /* MockDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		C4C1430F2AF8E1A100CA7460 /* MovieListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModelTest.swift; sourceTree = "<group>"; };
 		C4C143112AF8E2A500CA7460 /* MockMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainViewController.swift; sourceTree = "<group>"; };
 		C4C143132AF8E51900CA7460 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		C4C143182AF9263900CA7460 /* DetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTest.swift; sourceTree = "<group>"; };
+		C4C1431A2AF926A700CA7460 /* MockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,7 @@
 			children = (
 				C4C143162AF9254600CA7460 /* Mock Network Layer */,
 				C4C143152AF9251F00CA7460 /* Main Page Tests */,
+				C4C143172AF9261300CA7460 /* Detail Page Tests */,
 			);
 			path = MovieListChallengeTests;
 			sourceTree = "<group>";
@@ -324,6 +329,15 @@
 				C4C143132AF8E51900CA7460 /* MockNetworkManager.swift */,
 			);
 			name = "Mock Network Layer";
+			sourceTree = "<group>";
+		};
+		C4C143172AF9261300CA7460 /* Detail Page Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C4C143182AF9263900CA7460 /* DetailViewModelTest.swift */,
+				C4C1431A2AF926A700CA7460 /* MockDetailViewController.swift */,
+			);
+			name = "Detail Page Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,7 +514,9 @@
 			files = (
 				C4C143102AF8E1A100CA7460 /* MovieListViewModelTest.swift in Sources */,
 				C4C143142AF8E51900CA7460 /* MockNetworkManager.swift in Sources */,
+				C4C1431B2AF926A700CA7460 /* MockDetailViewController.swift in Sources */,
 				C4C143122AF8E2A500CA7460 /* MockMainViewController.swift in Sources */,
+				C4C143192AF9263900CA7460 /* DetailViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

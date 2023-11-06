@@ -23,6 +23,8 @@ final class MockNetworkManager: NetworkManagerInterface {
     var invokeGetDetailShow = false
     var invokeGetDetailShowCount = 0
     
+    var testRating: Double = 0.0
+    
     func getPopularTvShows(pageIndex: Int, completion: @escaping (Result<MovieListChallenge.TvShowResponseModel, Alamofire.AFError>) -> Void) {
         invokeGetPopularShows = true
         invokeGetPopularShowsCount += 1
@@ -54,6 +56,6 @@ extension MockNetworkManager {
     }
     
     private var dummyDetail: TvShowDetailResponseModel {
-        return TvShowDetailResponseModel(adult: true, backdropPath: "", episodeRunTime: [0], firstAirDate: "", homepage: "", id: 0, inProduction: true, languages: [""], lastAirDate: "", name: "", numberOfEpisodes: 0, numberOfSeasons: 0, originCountry: [""], originalLanguage: "", originalName: "", overview: "", popularity: 0.0, posterPath: "", status: "", tagline: "", type: "", voteAverage: 0.0, voteCount: 0)
+        return TvShowDetailResponseModel(adult: true, backdropPath: "deneme backdrop", episodeRunTime: [25], firstAirDate: "2023-11-06", homepage: "deneme homepage", id: 0, inProduction: true, languages: [""], lastAirDate: "", name: "deneme name", numberOfEpisodes: 0, numberOfSeasons: 0, originCountry: [""], originalLanguage: "", originalName: "", overview: "deneme overview", popularity: 0.0, posterPath: "deneme poster", status: "", tagline: "", type: "", voteAverage: testRating, voteCount: 0)
     }
 }
