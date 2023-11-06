@@ -9,8 +9,6 @@ import Foundation
 import Alamofire
 
 protocol MainViewModelInterface {
-//    var view: MainViewInterface? { get set }
-    
     func viewDidLoad()
     func viewWillAppear()
     func cellForRow(at index: IndexPath) -> [TvResult]
@@ -84,7 +82,6 @@ final class MainViewModel: MainViewModelInterface {
             switch result {
             case .success(let success):
                 self.listInfo.append(ListInfo(listType: listType, tvShowResponse: success))
-//                self.view?.reloadCollectionView()
             case .failure(let failure):
                 view?.presentAlert(message: failure.localizedDescription, actions: [])
             }
