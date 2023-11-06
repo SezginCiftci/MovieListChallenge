@@ -42,19 +42,16 @@ final class DetailViewModel: DetailViewModelInterface {
     
     private func calculateStars() -> [String] {
         let voteRate: Double = responseDetail?.voteAverage ?? 0.0
-        let scaleToFive = voteRate/2
+        let scaleToFive = min(voteRate / 2, 5.0)
         var starArray = [String]()
-        let remainder: Double = scaleToFive - Double(Int(scaleToFive))
         for _ in 0..<Int(scaleToFive) {
             starArray.append("star.fill")
         }
-        if remainder != 0, remainder >= 0.5 {
+        if scaleToFive.truncatingRemainder(dividingBy: 1.0) >= 0.5 {
             starArray.append("star.leadinghalf.filled")
         }
-        if starArray.count < 5 {
-            for _ in 0..<(5-Int(scaleToFive.rounded())) {
-                starArray.append("star")
-            }
+        while starArray.count < 5 {
+            starArray.append("star")
         }
         return starArray.count == 5 ? starArray : []
     }
