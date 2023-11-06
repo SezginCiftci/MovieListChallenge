@@ -33,7 +33,7 @@ final class DetailViewModel: DetailViewModelInterface {
     }
     
     func viewDidLoad() {
-        view?.configureNavigationBar(barTitle: "TV Shows",
+        view?.configureNavigationBar(barTitle: "",
                                      prefersLargeTitle: true,
                                      barBgColorStr: "navbarBg",
                                      barTitleColorStr: "navbarTitleColor")
