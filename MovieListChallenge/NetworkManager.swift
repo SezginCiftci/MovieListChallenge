@@ -8,14 +8,14 @@
 import Foundation
 import Alamofire
 
-protocol NetworkManagerProtocol {
+protocol NetworkManagerInterface {
     func getPopularTvShows(pageIndex: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void)
     func getOnTheAirTvShows(pageIndex: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void)
     func getTopRatedTvShows(pageIndex: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void)
     func getDetailTvShows(showId: Int, completion: @escaping (Result<TvShowDetailResponseModel, AFError>) -> Void)
 }
 
-final class NetworkManager: NetworkManagerProtocol {
+final class NetworkManager: NetworkManagerInterface {
     func getPopularTvShows(pageIndex: Int, completion: @escaping (Result<TvShowResponseModel, AFError>) -> Void) {
         request(method: .popular(pageIndex: pageIndex), completion: completion)
     }

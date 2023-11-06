@@ -24,7 +24,7 @@ protocol DetailViewModelInterface {
 final class DetailViewModel: DetailViewModelInterface {
     
     weak var view: DetailViewInterface?
-    var networkManager: NetworkManagerProtocol = NetworkManager()
+    var networkManager: NetworkManagerInterface = NetworkManager()
     var responseDetail: TvShowDetailResponseModel?
     var showId: Int
     

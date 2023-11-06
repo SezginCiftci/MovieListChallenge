@@ -20,13 +20,13 @@ protocol MainViewModelInterface {
 final class MainViewModel: MainViewModelInterface {
     
     private weak var view: MainViewInterface?
-    private var networkManager: NetworkManagerProtocol
+    private var networkManager: NetworkManagerInterface
     
     private var listInfo: [ListArguments] = []
     private let group = DispatchGroup()
     
-    init(view: MainViewInterface? = nil,
-         networkManager: NetworkManagerProtocol = NetworkManager()) {
+    init(view: MainViewInterface,
+         networkManager: NetworkManagerInterface = NetworkManager()) {
         self.view = view
         self.networkManager = networkManager
     }
@@ -83,7 +83,7 @@ final class MainViewModel: MainViewModelInterface {
             case .success(let success):
                 self.listInfo.append(ListArguments(listType: listType, tvShowResponse: success))
             case .failure(let failure):
-                view?.presentAlert(message: failure.localizedDescription, actions: [])
+                self.view?.presentAlert(message: failure.localizedDescription, actions: [])
             }
             group.leave()
         }
