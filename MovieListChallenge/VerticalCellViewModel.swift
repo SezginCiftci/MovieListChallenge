@@ -26,14 +26,14 @@ final class VerticalCellViewModel: VerticalCellViewModelInterface {
     var delegate: VerticalCollectionCellDelegate
     var tvShows: [TvResult]
     
-    init(view: VerticalCollectionCellInterface? = nil,
+    init(view: VerticalCollectionCellInterface,
          tvShows: [TvResult],
          delegate: VerticalCollectionCellDelegate) {
         self.view = view
         self.tvShows = tvShows
         self.delegate = delegate
         layoutSubViews()
-        !tvShows.isEmpty ? view?.reloadCollectionView() : nil
+        !tvShows.isEmpty ? self.view?.reloadCollectionView() : nil
     }
     
     func layoutSubViews() {

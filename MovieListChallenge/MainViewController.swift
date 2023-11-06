@@ -57,7 +57,7 @@ final class MainViewController: UIViewController, MainViewInterface {
 extension MainViewController: VerticalCollectionCellDelegate {
     func didSelectShow(showId: Int) {
         let detailVC = DetailViewController()
-        let detailVM = DetailViewModel(showId: showId)
+        let detailVM = DetailViewModel(view: detailVC, showId: showId)
         detailVC.viewModel = detailVM
         navigationController?.pushViewController(detailVC, animated: true)
     }

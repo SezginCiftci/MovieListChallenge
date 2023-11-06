@@ -31,7 +31,6 @@ final class DetailViewController: UIViewController, DetailViewInterface {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.view = self
         viewModel.viewDidLoad()
     }
     
@@ -43,7 +42,7 @@ final class DetailViewController: UIViewController, DetailViewInterface {
         topImageView.kf.setImage(with: URL(string: viewModel.topImageURL))
         posterImageView.kf.setImage(with: URL(string: viewModel.posterImageURL))
         let _ = viewModel.getStarImageNames.enumerated().map { index, starStr in
-            starImages[index].image = UIImage(systemName: starStr)
+            starImages[index].image = UIImage(systemName: starStr.starImageName)
         }
     }
     

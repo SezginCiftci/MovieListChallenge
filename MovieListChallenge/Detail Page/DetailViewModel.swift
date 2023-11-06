@@ -16,7 +16,7 @@ protocol DetailViewModelInterface {
     var firstAir: String { get }
     var topImageURL: String { get }
     var posterImageURL: String { get }
-    var getStarImageNames: [String] { get }
+    var getStarImageNames: [StarType] { get }
     
     func viewDidLoad()
 }
@@ -24,11 +24,15 @@ protocol DetailViewModelInterface {
 final class DetailViewModel: DetailViewModelInterface {
     
     weak var view: DetailViewInterface?
-    var networkManager: NetworkManagerInterface = NetworkManager()
+    var networkManager: NetworkManagerInterface
     var responseDetail: TvShowDetailResponseModel?
     var showId: Int
     
-    init(showId: Int) {
+    init(view: DetailViewInterface,
+         networkManager: NetworkManagerInterface = NetworkManager(),
+         showId: Int) {
+        self.view = view
+        self.networkManager = networkManager
         self.showId = showId
     }
     
@@ -40,18 +44,18 @@ final class DetailViewModel: DetailViewModelInterface {
         fetchDetail()
     }
     
-    private func calculateStars() -> [String] {
+    private func calculateStars() -> [StarType] {
         let voteRate: Double = responseDetail?.voteAverage ?? 0.0
         let scaleToFive = min(voteRate / 2, 5.0)
-        var starArray = [String]()
+        var starArray = [StarType]()
         for _ in 0..<Int(scaleToFive) {
-            starArray.append("star.fill")
+            starArray.append(.starFilled)
         }
         if scaleToFive.truncatingRemainder(dividingBy: 1.0) >= 0.5 {
-            starArray.append("star.leadinghalf.filled")
+            starArray.append(.starHalfFilled)
         }
         while starArray.count < 5 {
-            starArray.append("star")
+            starArray.append(.star)
         }
         return starArray.count == 5 ? starArray : []
     }
@@ -84,7 +88,7 @@ extension DetailViewModel {
         return responseDetail?.overview ?? ""
     }
     var runTime: String {
-        return String(responseDetail?.episodeRunTime?.first ?? 0) + "min."
+        return String(responseDetail?.episodeRunTime?.first ?? 0) + " min."
     }
     var firstAir: String {
         return responseDetail?.firstAirDate.configureDate() ?? ""
@@ -95,7 +99,24 @@ extension DetailViewModel {
     var posterImageURL: String {
         return responseDetail?.posterURL ?? ""
     }
-    var getStarImageNames: [String] {
+    var getStarImageNames: [StarType] {
         return calculateStars()
+    }
+}
+
+enum StarType {
+    case star
+    case starFilled
+    case starHalfFilled
+    
+    var starImageName: String {
+        switch self {
+        case .star:
+            return "star"
+        case .starFilled:
+            return "star.fill"
+        case .starHalfFilled:
+            return "star.leadinghalf.filled"
+        }
     }
 }
